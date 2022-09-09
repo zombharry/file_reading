@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Product List{% endblock %}
+
+{% block body %}
+
+<div>
+    <h1>Product list {{level}}</h1>
+
+    <table>
+        <tr>
+            <td>Id</td>
+            <td>title</td>
+            <td>level</td>
+            <td>net</td>
+            <td>count</td>
+            <td>vat</td>
+            <td>sum</td>
+        </tr>
+    {% for product in products %}
+        <tr>
+            <td class="end">
+                {{product.id}}
+            </td>
+            <td>
+                {{product.title}}
+            </td>
+            <td class="end">
+                <a href="/list/{{product.level}}">{{product.level}}</a>
+            </td>
+            <td class="end">
+                {{product.net}}
+            </td>
+            <td class="end">
+                {{product.count}}
+            </td>
+            <td class="end">
+                {{product.vat}}
+            </td>
+            <td class="end">
+                {{product.sum_gross_val}}
+            </td>
+        </tr>
+    {% endfor %}
+   </table>
+</div>
+{% endblock %}
